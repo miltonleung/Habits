@@ -62,6 +62,14 @@ class HabitsController < ApplicationController
     end
   end
 
+  def add_user
+    @membership = Membership.create({:user_id => current_user.id,
+                                    :habit_id => params[:id]})
+    # if @membership.save
+    #     redirect_to controller: 'habits', action: 'show', id: @membership.habit_id
+    # end
+    @membership.save
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_habit

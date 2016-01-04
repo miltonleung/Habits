@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :habits do
-    resources :memberships, only: [:new, :create]
+    get 'add_user'
   end
 
   root 'habits#index'
