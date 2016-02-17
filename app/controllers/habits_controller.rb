@@ -1,5 +1,5 @@
 class HabitsController < ApplicationController
-  before_action :set_habit, only: [:show, :edit, :update, :destroy]
+  before_action :set_habit, only: [:show, :edit, :update, :destroy, :add_user]
   before_action :authenticate_user!, except: [:index, :show]
 
   # GET /habits
@@ -63,12 +63,15 @@ class HabitsController < ApplicationController
   end
 
   def add_user
-    @membership = Membership.create({:user_id => current_user.id,
-                                    :habit_id => params[:id]})
+    # @membership = Membership.create({:user_id => current_user.id,
+    #                                 :habit_id => params[:id]})
     # if @membership.save
     #     redirect_to controller: 'habits', action: 'show', id: @membership.habit_id
     # end
-    @membership.save
+    current_user.habits << @habit
+    # @membership.save
+    redirect_to @habit, notice: "Added you to Group #{@habit.title}"
+
   end
   private
     # Use callbacks to share common setup or constraints between actions.

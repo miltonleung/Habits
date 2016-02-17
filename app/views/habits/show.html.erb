@@ -18,6 +18,6 @@
                            :user_id => current_user.id).exists? %>
         Joined
     <% else %>
-        <%= link_to "Join", habit_add_user_path(@habit) %>
+        <%= link_to "Join", add_user_habit_path(@habit) %>
     <% end %>
 <% end %>
