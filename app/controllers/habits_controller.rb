@@ -30,10 +30,10 @@ class HabitsController < ApplicationController
     respond_to do |format|
       if @habit.save
         format.html { redirect_to @habit, notice: 'Habit was successfully created.' }
-        format.json { render :show, status: :created, location: @habit }
+        # format.json { render :show, status: :created, location: @habit }
       else
         format.html { render :new }
-        format.json { render json: @habit.errors, status: :unprocessable_entity }
+        # format.json { render json: @habit.errors, status: :unprocessable_entity }
       end
     end
   end
