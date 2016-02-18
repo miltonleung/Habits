@@ -21,3 +21,11 @@
         <%= link_to "Join", add_user_habit_path(@habit) %>
     <% end %>
 <% end %>
+
+<div id="comments">
+  <h2><%= @habit.comments.count %> Comments</h2>
+  <%= render @habit.comments %>
+
+  <h3>Add a comment</h3>
+  <%= render "comments/form" %>
+</div>

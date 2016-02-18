@@ -1,6 +1,8 @@
 class Habit < ActiveRecord::Base
+
+  validates :title, presence: true
+  validates :action, presence: true
   has_many :memberships
   has_many :users, through: :memberships
-  validates :title, presence: true
-  validates :action, presence: true, format: {with: (start|stop)}
+  has_many :comments, dependent: :destroy
 end
