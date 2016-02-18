@@ -1,6 +1,6 @@
 <%= form_for([@habit, @habit.comments.build]) do |f| %>
   <p>
-    <%= current_user.email %>
+    <%= current_user.firstname %> <%= current_user.lastname %>
   </p>
 
   <p>
